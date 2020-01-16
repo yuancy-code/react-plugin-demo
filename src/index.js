@@ -3,9 +3,9 @@ import ReactDOM from "react-dom";
 import "./index.less";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import {register} from "@core";
+import {register} from "react-plugin-system";
 
-let pages = require.context("./plugins", true, /\/.*config\.js$/);
+let pages = require.context("@plugins", true, /\/.*config\.js$/);
 pages.keys().map(key => {
   let config = pages(key).default;
   // 注册插件
