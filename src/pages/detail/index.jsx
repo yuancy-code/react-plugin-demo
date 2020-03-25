@@ -2,23 +2,84 @@
  * @Author: yuanchengyong
  * @Date: 2020-01-09 10:00:15
  * @Last Modified by: yuanchengyong
- * @Last Modified time: 2020-02-20 11:37:23
+ * @Last Modified time: 2020-03-25 23:49:48
  */
 import React from "react";
 // import { useState } from "react";
-import { Row, Col, Tabs } from "antd";
+import { Row, Col, Tabs, Button } from "antd";
 import { callPlugin, Plugin } from "react-plugin-system";
 import "./index.less";
 const { TabPane } = Tabs;
-function Example() {
+function Detail(props) {
   // Declare a new state variable, which we'll call "count"
   // const [count, setCount] = useState(0);
   const contractPath = callPlugin("contractInfo");
   const debtPath = callPlugin("debtInfo");
   const collateralPath = callPlugin("collateralInfo");
   const counterCollateralPath = callPlugin("counterCollateralInfo");
+  const { match = {} } = props;
+  const { params } = match;
+  const { id } = params;
+  /**
+   * 编辑
+   */
+  const edit = async function() {
+    let path = callPlugin("edit");
+    let plugin = await import("@plugins/" + path);
+    plugin.default({ id });
+  };
+  /**
+   * 删除
+   */
+  const del = async function() {
+    let path = callPlugin("listDel");
+    let plugin = await import("@plugins/" + path);
+    plugin.default({ id });
+  };
+  /**
+   * 送审
+   */
+  const examine = async function() {
+    let path = callPlugin("examine");
+    let plugin = await import("@plugins/" + path);
+    plugin.default({ id });
+  };
   return (
     <div className="content-detail">
+      <div className="title-info">
+        <Row className="title">
+          <Col span={12}>
+            <h3>担保详情</h3>
+          </Col>
+          <Col span={12}>
+            <div className="button-list">
+              <Button
+                onClick={() => {
+                  edit();
+                }}
+              >
+                编辑
+              </Button>
+              <Button
+                type="danger"
+                onClick={() => {
+                  del();
+                }}
+              >
+                删除
+              </Button>
+              <Button
+                type="primary"
+                onClick={() => {
+                  examine();
+                }}
+              >
+                送审
+              </Button>
+            </div>
+          </Col>
+        </Row>
+      </div>
       <div className="big-title-warp">
         <div className="title-conetent">
           <div className="group-button"></div>
@@ -123,4 +184,4 @@ function Example() {
     </div>
   );
 }
-export default Example;
+export default Detail;

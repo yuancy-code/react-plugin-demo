@@ -2,12 +2,12 @@
  * @Author: yuanchengyong
  * @Date: 2020-01-15 09:15:48
  * @Last Modified by: zyycy_love@126.com
- * @Last Modified time: 2020-01-15 15:21:58
+ * @Last Modified time: 2020-03-25 11:38:36
  */
 import { message, Modal } from "antd";
 const { confirm } = Modal;
 
-export default function(config = {}) {
+export default function(config) {
   const { onOk = () => {}, onCancel = () => {} } = config;
   confirm({
     title: "您确定要删除吗?",
