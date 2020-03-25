@@ -1,0 +1,50 @@
+.contract-info-plugin {
+    .list {
+        margin: 0 0 20px 0;
+        .title {
+            font-size: 16px;
+            color: #4b4b4b;
+            font-weight: bold;
+            margin: 10px 0;
+            .antion{
+                cursor: pointer;
+            }
+            .antion-up {
+                &::after {
+                    content: "▲";
+                    margin: 0 5px;
+                    color: #4b81fd;
+                }
+            }
+
+            .antion-down {
+                &::after {
+                    content: "▼";
+                    margin: 0 5px;
+                    color: #4b81fd;
+                }
+            }
+        }
+
+        .info {
+            background: #f7f7f7;
+            padding: 20px;
+
+            .item {
+                line-height: 36px;
+                font-size: 16px;
+                color: #999;
+
+                .item-title {
+                    &::after {
+                        content: "：";
+                    }
+                }
+
+                .item-value {
+                    color: #444;
+                }
+            }
+        }
+    }
+}
