@@ -2,7 +2,7 @@
  * @Author: yuanchengyong 
  * @Date: 2020-01-14 15:51:18 
  * @Last Modified by: zyycy_love@126.com
- * @Last Modified time: 2020-03-25 15:23:57
+ * @Last Modified time: 2020-01-19 14:40:12
  */
 import React from "react";
 import { Button } from 'antd';
@@ -52,9 +52,14 @@ class ButtonBox extends React.Component {
     render() {
         let path = (callPlugin('listInfo'));
         return <div className="button-box">
-            <Button icon="plus" onClick={this.addHandle}>新增</Button>
-            <Button icon="delete" onClick={this.delHandle}>删除</Button>
-            <Button icon="export" onClick={this.exportHandle}>导出</Button>
+            
+            
+                <Button icon="plus" onClick={this.addHandle}>新增</Button>
+            
+                <Button icon="delete" onClick={this.delHandle}>删除</Button>
+            
+                <Button icon="export" onClick={this.exportHandle}>导出</Button>
+            
             <Plugin importComponent={() => { return import("@plugins/" + path) }} onClose={this.infoCloseHandel} />
         </div>
     }
