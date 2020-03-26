@@ -2,7 +2,7 @@
  * @Author: yuanchengyong
  * @Date: 2020-01-09 10:00:15
  * @Last Modified by: zyycy_love@126.com
- * @Last Modified time: 2020-03-26 09:40:25
+ * @Last Modified time: 2020-03-26 09:47:53
  */
 import React from "react";
 // import { useState } from "react";
@@ -50,7 +50,7 @@ function Detail(props) {
                 <Row className="title">
                     <Col span={12}>
                         <h3>担保详情</h3>
-                    </Col>f
+                    </Col>
                     <Col span={12}>
                         <div className="button-list">
                             <Button
