@@ -2,7 +2,7 @@
  * @Author: yuanchengyong 
  * @Date: 2020-01-14 15:51:18 
  * @Last Modified by: zyycy_love@126.com
- * @Last Modified time: 2020-03-26 09:28:24
+ * @Last Modified time: 2020-03-26 10:29:08
  */
 import React from "react";
 import { Link } from "react-router-dom";
@@ -80,7 +80,7 @@ function List(props) {
             key: 'operation',
             fixed: 'right',
             width: 100,
-            render: (text,record) => {
+            render: (text, record) => {
                 return <div> <Button type="link" onClick={() => { listDelete(record) }}>删除</Button></div>
             },
         },
@@ -120,7 +120,7 @@ function List(props) {
     const listDelete = async function (record) {
         let path = (callPlugin('listDel'));
         let plugin = await import("@plugins/" + path);
-        (plugin.default)({ b: 1 });
+        (plugin.default)({ listSelected: [record] });
     }
     return <Table columns={columns} rowSelection={rowSelection} dataSource={data} scroll={{ x: 1760 }} />
 }
